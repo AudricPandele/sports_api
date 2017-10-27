@@ -1,37 +1,57 @@
 /**
- * AuthController.js
+ * AuthController
  *
- * @description ::
- * @docs        :: http://sailsjs.org/#!documentation/controllers
+ * @description :: Server-side logic for managing Auths
+ * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
-var passport = require('passport');
+
+var passport = require ('passport');
+
+function onPassportAuth(req, res, error, user, info)
+{
+    if (error) return res.serverError(error);
+    if (!user) return res.serverError(error);
+
+    return res.ok (
+        {
+            token : SecurityService.createToken(user),
+            user:user
+        }
+    )
+}
+
 
 module.exports = {
 
-  index: function(req, res) {
-    res.view();
-  },
+    signin: function (req,res)
+    {
+        passport.authenticate('local',
+        onPassportAuth.bind(this,req,res))(req,res);
+    },
+    signup : function (req,res) {
+        User.create(
+           req.allParams()
+         ).exec(function (err, newUser) {
+           newUser.token = SecurityService.createToken(newUser)
+           res.ok(newUser)
+         })
+    },
+    // isAuth: function (req, res){
+    //   var tokenFront = req.param('token');
+    //   var idFront = req.param('id');
+    //   User.findOne({id:idFront},function(err,user){
+    //     if (tokenFront == user.token) {
+    //       console.log('is connected !');
+    //       return res.ok();
+    //     } else {
+    //       console.log('ALERT Wrong user !');
+    //       console.log(tokenFront);
+    //       console.log(user.token); /* Le token n'est pas dans la bdd, le stocker si il faut que la fonction marche */
+    //       return res.ok();
+    //     }
+    //   });
+    //
+    // }
 
-  logout: function(req, res) {
-    req.logout();
-    res.redirect('/');
-  },
-
-  // https://developers.facebook.com/docs/
-  // https://developers.facebook.com/docs/reference/login/
-  facebook: function(req, res) {
-    passport.authenticate('facebook', { failureRedirect: '/login', scope: ['email'] }, function(err, user) {
-      req.logIn(user, function(err) {
-        if (err) {
-          console.log(err);
-          res.view('500');
-          return;
-        }
-
-        res.redirect('/');
-        return;
-      });
-    })(req, res);
-  },
 };
