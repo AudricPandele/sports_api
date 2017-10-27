@@ -5,11 +5,10 @@
  * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
-module.exports = {
+ function index(req, res) {
+   res.view({
+     user: req.user
+   });
+ }
 
-  index: function(req, res) {
-    res.view({
-      user: req.user
-    });
-  }
-};
+module.exports = {index};

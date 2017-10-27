@@ -21,37 +21,18 @@ function onPassportAuth(req, res, error, user, info)
     )
 }
 
+function signin(req, res) {
+  passport.authenticate('local',
+  onPassportAuth.bind(this,req,res))(req,res);
+}
 
-module.exports = {
+function signup(req, res) {
+  User.create(
+     req.allParams()
+   ).exec(function (err, newUser) {
+     newUser.token = SecurityService.createToken(newUser)
+     res.ok(newUser)
+   })
+}
 
-    signin: function (req,res)
-    {
-        passport.authenticate('local',
-        onPassportAuth.bind(this,req,res))(req,res);
-    },
-    signup : function (req,res) {
-        User.create(
-           req.allParams()
-         ).exec(function (err, newUser) {
-           newUser.token = SecurityService.createToken(newUser)
-           res.ok(newUser)
-         })
-    },
-    // isAuth: function (req, res){
-    //   var tokenFront = req.param('token');
-    //   var idFront = req.param('id');
-    //   User.findOne({id:idFront},function(err,user){
-    //     if (tokenFront == user.token) {
-    //       console.log('is connected !');
-    //       return res.ok();
-    //     } else {
-    //       console.log('ALERT Wrong user !');
-    //       console.log(tokenFront);
-    //       console.log(user.token); /* Le token n'est pas dans la bdd, le stocker si il faut que la fonction marche */
-    //       return res.ok();
-    //     }
-    //   });
-    //
-    // }
-
-};
+module.exports = { signin, signup };
