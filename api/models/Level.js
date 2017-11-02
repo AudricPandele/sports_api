@@ -18,6 +18,11 @@
        sportLists: {
          collection: 'sportList',
          via: 'levels'
+       },
+
+       event: {
+         collection: 'event',
+         via: 'level'
        }
      }
 

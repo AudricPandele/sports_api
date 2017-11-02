@@ -11,8 +11,33 @@
 
        name: {
            type: 'string',
-           unique: false,
            required: true,
+       },
+
+       description: {
+         type: 'string',
+       },
+
+       number_of_participants: {
+         type: 'integer',
+       },
+
+       place: {
+         type: 'string'
+       },
+
+       owner: {
+         model: 'user'
+       },
+
+       sport: {
+         model: 'sport',
+         unique: true
+       },
+
+       level: {
+         model: 'level',
+         unique: true
        }
      }
 
