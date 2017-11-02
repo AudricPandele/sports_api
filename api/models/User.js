@@ -60,14 +60,14 @@ module.exports = {
         via: 'user'
       },
 
-      // toJSON: function () {
-      //     var obj = this.toObject();
-      //     delete obj.password;
-      //     delete obj.createdAt;
-      //     delete obj.updatedAt;
-      //     /*  delete obj.id;*/
-      //     return obj;
-      // }
+      toJSON: function () {
+          var obj = this.toObject();
+          delete obj.password;
+          delete obj.createdAt;
+          delete obj.updatedAt;
+          /*  delete obj.id;*/
+          return obj;
+      }
     },
 
     beforeCreate: function (values, next) {
