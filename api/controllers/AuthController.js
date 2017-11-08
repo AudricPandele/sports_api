@@ -13,7 +13,6 @@ function onPassportAuth(req, res, error, user, info)
     if (error) return res.serverError(error);
     if (!user) return res.serverError(error);
 
-    console.log(user);
     return res.ok (
         {
             token : SecurityService.createToken(user),
@@ -32,12 +31,7 @@ function signup(req, res) {
      req.allParams()
    ).exec(function (err, newUser) {
      newUser.token = SecurityService.createToken(newUser)
-     SportList.create(
-       { user: newUser.id }
-     ).exec(function (err, newList) {
-       newUser.sportList = newList
-       res.ok(newUser)
-     })
+     res.ok(newUser)
    })
 }
 
