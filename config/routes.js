@@ -39,7 +39,7 @@ module.exports.routes = {
   'post /auth/signup' :'AuthController.signup',
   //'post /auth/signout' :'AuthController.signup',
 
-  'get /user/me' : 'UserController.me',
+  'get /user/:id' : 'UserController.getUserWithSportList',
 
   /***************************************************************************
   *                                                                          *
