@@ -32,12 +32,10 @@
 
        sport: {
          model: 'sport',
-         unique: true
        },
 
        level: {
          model: 'level',
-         unique: true
        }
      }
 
