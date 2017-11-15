@@ -38,6 +38,11 @@
        level: {
          model: 'level',
          unique: true
+       },
+
+       participants : {
+         collection : 'group',
+         via : 'event'
        }
      }
 
