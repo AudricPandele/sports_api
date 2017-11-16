@@ -17,7 +17,7 @@
 
        sportLists: {
          collection: 'sportList',
-         via: 'levels'
+         via: 'level'
        },
 
        event: {

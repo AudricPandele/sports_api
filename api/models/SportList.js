@@ -10,20 +10,15 @@
      attributes: {
 
        user: {
-           model: 'user',
-           unique: true
+          model: 'user',
+      },
+
+       sport: {
+         model: 'sport',
        },
 
-       sports: {
-         collection: 'sport',
-         via: 'sportLists',
-         dominant: true
-       },
-
-       levels: {
-         collection: 'level',
-         via: 'sportLists',
-         dominant: true
+       level: {
+         model: 'level',
        }
      }
 

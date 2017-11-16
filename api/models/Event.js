@@ -32,7 +32,6 @@
 
        sport: {
          model: 'sport',
-         unique: true
        },
 
        level: {
@@ -43,7 +42,7 @@
        participants : {
          collection : 'group',
          via : 'event'
-       }
+      }
      }
 
  };

@@ -31,12 +31,7 @@ function signup(req, res) {
      req.allParams()
    ).exec(function (err, newUser) {
      newUser.token = SecurityService.createToken(newUser)
-     SportList.create(
-       { user: newUser.id }
-     ).exec(function (err, newList) {
-       newUser.sportList = newList
-       res.ok(newUser)
-     })
+     res.ok(newUser)
    })
 }
 
