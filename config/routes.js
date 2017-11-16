@@ -40,6 +40,7 @@ module.exports.routes = {
   //'post /auth/signout' :'AuthController.signup',
 
   'get /user/:id' : 'UserController.getUserWithSportList',
+  'get /event/:id' : 'EventController.show',
 
   /***************************************************************************
   *                                                                          *
