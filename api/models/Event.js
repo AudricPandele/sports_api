@@ -34,9 +34,17 @@
          model: 'sport',
        },
 
+       date : {
+         type: 'date',
+         required: true,
+       },
+
        level: {
          model: 'level',
-         unique: true
+       },
+
+       status: {
+         model: 'status',
        },
 
        participants : {

@@ -17,6 +17,7 @@ async function getUserWithSportList(req, res) {
 	user.events = await Event.find({ owner: user.id })
 		.populate('sport')
 		.populate('level')
+		.populate('status')
 
 	res.ok(user)
 }
