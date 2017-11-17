@@ -23,6 +23,10 @@
        event: {
          collection: 'event',
          via: 'sport'
+       },
+
+       picture: {
+         type: 'string'
        }
      }
 
