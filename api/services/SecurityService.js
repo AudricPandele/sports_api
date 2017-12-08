@@ -6,9 +6,11 @@ module.exports = {
   hashPassword : function (user){
     if(user.password){
       user.password = bcrypt.hashSync(user.password)
+      console.log(user.password);
     }
   },
   comparePassword: function (password, user){
+    console.log(user.password);
     return bcrypt.compareSync(password, user.password)
   },
 

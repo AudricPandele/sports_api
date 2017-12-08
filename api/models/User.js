@@ -78,10 +78,6 @@ module.exports = {
     beforeCreate: function (values, next) {
         SecurityService.hashPassword(values);
         next();
-    },
-    beforeUpdate: function (values, next) {
-        SecurityService.hashPassword(values);
-        next();
     }
 
 };
