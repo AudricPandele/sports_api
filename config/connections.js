@@ -60,9 +60,9 @@ module.exports.connections = {
   //   adapter: 'sails-mongo',
   //   host: 'localhost',
   //   port: 27017,
-  //   user: '',
+  //   user: 'audric',
   //   password: '',
-  //   database: 'sails-social-auth'
+  //   database: 'sports_api'
   // },
 
   /***************************************************************************
