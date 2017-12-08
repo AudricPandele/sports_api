@@ -7,8 +7,5 @@ module.exports = function (req, res, next) {
         return res.json( { message: info.message })
       req.user = user;
       next()
-    // if (err) { return next(err) }
-    // if (!user) { return res.json( { message: info.message }) }
-    // res.json(user);
   }) (req, res)
 }
