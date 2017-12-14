@@ -7,7 +7,8 @@
 
 async function getUserWithSportList(req, res) {
 	const user = (await User.findOne({ id: req.params.id })
-		.populate('events'))
+		.populate('events')
+		.populate('friends'))
 	.toJSON()
 
 	user.sportList = await SportList.find({ user: user.id })
@@ -18,6 +19,7 @@ async function getUserWithSportList(req, res) {
 		.populate('sport')
 		.populate('level')
 		.populate('status')
+
 
 	res.ok(user)
 }

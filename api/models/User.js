@@ -60,6 +60,11 @@ module.exports = {
         via: 'user'
       },
 
+      friends: {
+        collection: 'user',
+        via: 'id'
+      },
+
       events: {
         collection: 'event',
         via: 'owner'
