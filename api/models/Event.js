@@ -26,6 +26,10 @@
          type: 'string'
        },
 
+       city: {
+         type: 'string'
+       },
+
        owner: {
          model: 'user'
        },

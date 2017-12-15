@@ -35,7 +35,7 @@ async function getUserInterests(req, res) {
 
 	let tmp = []
 	for (var i = 0; i < user.sportList.length; i++) {
-		let event = await Event.find({ sport: user.sportList[i].sport.id, level: user.sportList[i].level.id })
+		let event = await Event.find({ sport: user.sportList[i].sport.id, level: user.sportList[i].level.id, city: req.params.city })
 		tmp.push(event)
 	}
 
