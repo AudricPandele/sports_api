@@ -27,7 +27,7 @@ async function getUserWithSportList(req, res) {
 async function getUserInterests(req, res) {
 	const user = (await User.findOne({ id: req.params.id })
 		.populate('events'))
-	.toJSON()
+		.toJSON()
 
 	user.sportList = await SportList.find({ user: user.id })
 		.populate('sport')
