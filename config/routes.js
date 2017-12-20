@@ -43,6 +43,7 @@ module.exports.routes = {
   'get /event/:id' : 'EventController.show',
   'get /opinion/:id' : 'OpinionController.show',
   'get /user/:id/interests/:city' : 'UserController.interests',
+  'get /group/user/:id' : 'GroupController.show',
 
   /***************************************************************************
   *                                                                          *
