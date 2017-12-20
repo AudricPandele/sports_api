@@ -43,6 +43,16 @@
          required: true,
        },
 
+       hour : {
+         type: 'int',
+         required: true,
+       },
+
+       minutes : {
+          type: 'int',
+          required: true,
+       },
+
        level: {
          model: 'level',
        },
