@@ -19,6 +19,7 @@ async function getUserWithSportList(req, res) {
 		.populate('sport')
 		.populate('level')
 		.populate('status')
+		.populate('owner')
 
 
 	res.ok(user)
