@@ -44,12 +44,12 @@
        },
 
        hour : {
-         type: 'int',
+         type: 'string',
          required: true,
        },
 
        minutes : {
-          type: 'int',
+          type: 'string',
           required: true,
        },
 
